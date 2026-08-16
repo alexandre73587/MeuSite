@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bullying na Escola — Informação e Ajuda</title>
+    <meta name="description" content="Site informativo sobre bullying escolar: o que é, tipos, consequências e como combater. Relato seguro disponível.">
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2c5282;
+            --accent: #e53e3e;
+            --accent-hover: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --text: #2d3748;
+            --text-light: #4a5568;
+            --border: #e2e8f0;
+            --success: #38a169;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 3.5rem 1.5rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0.75rem 1rem;
+            gap: 0.5rem 1.5rem;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.35rem 0.5rem;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        nav a:hover {
+            background: #edf2f7;
+        }
+
+        /* Main content */
+        main {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2.5rem 1.25rem 4rem;
+        }
+
+        section {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 2rem 1.75rem;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+
+        section h2 {
+            color: var(--primary);
+            font-size: 1.45rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #bee3f8;
+            display: inline-block;
+        }
+
+        section h3 {
+            color: var(--primary-light);
+            font-size: 1.15rem;
+            margin: 1.4rem 0 0.6rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        ul, ol {
+            margin: 0.75rem 0 1.25rem 1.5rem;
+            color: var(--text-light);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Cards de tipos */
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .tipo-card {
+            background: #f0f7ff;
+            border-left: 4px solid var(--primary-light);
+            padding: 1.1rem 1.2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tipo-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
+        }
+
+        .tipo-card p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Destaque / alerta */
+        .alerta {
+            background: #fff5f5;
+            border: 1px solid #feb2b2;
+            border-left: 5px solid var(--accent);
+            padding: 1.25rem 1.4rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .alerta p {
+            margin: 0;
+            color: #742a2a;
+        }
+
+        /* CTA final */
+        .cta {
+            background: linear-gradient(135deg, #2b6cb0 0%, #2c5282 100%);
+            color: white;
+            text-align: center;
+            padding: 2.75rem 1.75rem;
+            border-radius: 14px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(44, 82, 130, 0.25);
+        }
+
+        .cta h2 {
+            color: white;
+            border: none;
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta p {
+            color: rgba(255,255,255,0.92);
+            max-width: 520px;
+            margin: 0 auto 1.75rem;
+            font-size: 1.05rem;
+        }
+
+        .btn-form {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.95rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-form:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #718096;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
+
+        footer a {
+            color: var(--primary-light);
+        }
+
+        /* Responsivo */
+        @media (max-width: 600px) {
+            section {
+                padding: 1.5rem 1.2rem;
+            }
+            header {
+                padding: 2.5rem 1.2rem;
+            }
+            .cta {
+                padding: 2rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bullying na Escola</h1>
+        <p>Informação, prevenção e um canal seguro para quem precisa de ajuda</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#o-que-e">O que é</a></li>
+            <li><a href="#tipos">Tipos</a></li>
+            <li><a href="#sinais">Sinais</a></li>
+            <li><a href="#consequencias">Consequências</a></li>
+            <li><a href="#como-agir">Como agir</a></li>
+            <li><a href="#formulario">Relatar</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section id="o-que-e">
+            <h2>O que é bullying?</h2>
+            <p>
+                Bullying é um comportamento agressivo e intencional, repetido ao longo do tempo, 
+                que envolve um desequilíbrio de poder entre o agressor e a vítima. 
+                Não é apenas uma “brincadeira” ou “conflito normal entre alunos”.
+            </p>
+            <p>
+                Ele pode ocorrer dentro da escola, no caminho de casa, em redes sociais 
+                ou em qualquer ambiente onde estudantes interagem. O bullying causa 
+                sofrimento real e precisa ser tratado com seriedade por toda a comunidade escolar.
+            </p>
+        </section>
+
+        <section id="tipos">
+            <h2>Tipos de bullying</h2>
+            <p>O bullying pode se manifestar de diferentes formas:</p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card">
+                    <h4>Físico</h4>
+                    <p>Empurrões, socos, chutes, agressões, destruição de objetos pessoais ou roubo de pertences.</p>
+                </div>
+                <div class="tipo-card">
+                    <h4>Verbal</h4>
+                    <p>Xingamentos, apelidos pejorativos, humilhações, ameaças e comentários preconceituosos.</p>
+                </div>
+                <div class="tipo-card">
+                    <h4>Social / Relacional</h4>
+                    <p>Exclusão de grupos, espalhar boatos, isolamento proposital e manipulação de amizades.</p>
+                </div>
+                <div class="tipo-card">
+                    <h4>Cyberbullying</h4>
+                    <p>Agressões pela internet: mensagens ofensivas, exposição de fotos, criação de perfis falsos e perseguição online.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sinais">
+            <h2>Sinais de alerta</h2>
+            <p>Fique atento se você ou alguém próximo apresentar:</p>
+            <ul>
+                <li>Mudança repentina de comportamento ou humor</li>
+                <li>Recusa em ir à escola ou reclamações frequentes de dor (dor de cabeça, barriga…)</li>
+                <li>Queda no rendimento escolar</li>
+                <li>Isolamento, perda de interesse em atividades que antes gostava</li>
+                <li>Hematoma, roupas rasgadas ou objetos danificados sem explicação</li>
+                <li>Ansiedade excessiva, medo de usar redes sociais ou de receber mensagens</li>
+                <li>Autolesão ou falas sobre não querer mais viver (procure ajuda imediatamente)</li>
+            </ul>
+        </section>
+
+        <section id="consequencias">
+            <h2>Consequências do bullying</h2>
+            <p>O bullying afeta a todos os envolvidos:</p>
+
+            <h3>Para a vítima</h3>
+            <ul>
+                <li>Baixa autoestima, ansiedade e depressão</li>
+                <li>Dificuldades de aprendizado e concentração</li>
+                <li>Problemas de sono e de saúde física</li>
+                <li>Em casos graves, ideação suicida</li>
+            </ul>
+
+            <h3>Para o agressor</h3>
+            <ul>
+                <li>Maior risco de comportamentos violentos no futuro</li>
+                <li>Dificuldades de relacionamento e empatia</li>
+                <li>Problemas disciplinares e legais</li>
+            </ul>
+
+            <h3>Para quem presencia</h3>
+            <ul>
+                <li>Sensação de medo e impotência</li>
+                <li>Normalização da violência</li>
+                <li>Culpa por não ter ajudado</li>
+            </ul>
+        </section>
+
+        <section id="como-agir">
+            <h2>Como agir</h2>
+
+            <h3>Se você está sofrendo bullying</h3>
+            <ul>
+                <li>Não se culpe — a responsabilidade é de quem agride</li>
+                <li>Conte para alguém de confiança (pai, mãe, professor, coordenação, psicólogo escolar)</li>
+                <li>Guarde provas (mensagens, prints, nomes de testemunhas)</li>
+                <li>Procure o canal de denúncia da escola ou use o formulário abaixo</li>
+            </ul>
+
+            <h3>Se você presenciou</h3>
+            <ul>
+                <li>Não ria nem incentive a agressão</li>
+                <li>Ofereça apoio à vítima depois</li>
+                <li>Reporte o ocorrido a um adulto responsável</li>
+                <li>Ser testemunha ativa ajuda a interromper o ciclo</li>
+            </ul>
+
+            <h3>Para responsáveis e escola</h3>
+            <ul>
+                <li>Escute sem julgar e leve a sério</li>
+                <li>Documente e acompanhe a situação</li>
+                <li>Aplique medidas educativas e, quando necessário, disciplinares</li>
+                <li>Promova campanhas de prevenção e cultura de respeito</li>
+            </ul>
+
+            <div class="alerta">
+                <p>
+                    <strong>Importante:</strong> Se houver risco imediato à integridade física ou mental, 
+                    ligue para o CVV (188) ou procure o serviço de emergência mais próximo. 
+                    Em casos de crime, a polícia também pode ser acionada.
+                </p>
+            </div>
+        </section>
+
+        <!-- CTA com o formulário -->
+        <section id="formulario" class="cta">
+            <h2>Precisa relatar um caso?</h2>
+            <p>
+                Você pode preencher o formulário de forma segura. 
+                Sua voz é importante para que a escola e os responsáveis possam agir.
+            </p>
+            <a class="btn-form" 
+               href="https://docs.google.com/forms/d/e/1FAIpQLScipXrVXjhuzvJnX0osvyPE8E-x4J2gQWLGD91-SUYb4E26_w/viewform?usp=header" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                Acessar o Formulário
+            </a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            Site informativo sobre bullying escolar · Feito para conscientização e apoio<br>
+            Se você está em sofrimento, peça ajuda. Você não está sozinho.
+        </p>
+    </footer>
+
+</body>
+</html>
